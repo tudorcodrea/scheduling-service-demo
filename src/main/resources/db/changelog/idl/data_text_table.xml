@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+	<changeSet author="tudor.codrea" id="data_text_table"
+		runOnChange="true">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="text_table" />
+			</not>
+		</preConditions>
+		<loadUpdateData catalogName="text_table" 
+			primaryKey="ID"
+			encoding="UTF-8" 
+			file="data_text_table.csv" 
+			quotchar="&quot;"
+			schemaName="public" 
+			separator="," 
+			tableName="text_table">
+		</loadUpdateData>
+	</changeSet>
+
+</databaseChangeLog>

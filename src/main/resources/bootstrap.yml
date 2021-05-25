@@ -1,0 +1,6 @@
+spring:  
+  application:
+    name: scheduling-service-demo
+  profiles:
+    active:
+    - dev  
